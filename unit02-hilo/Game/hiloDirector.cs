@@ -5,11 +5,12 @@ namespace unit02_hilo.Game
 {
     public class Director
     {
+        bool isPlaying = true;
+        int score = 0;
+
         public Director()
         {
-            for
         }
-
         public void StartGame()
         {
             while (isPlaying)
@@ -24,22 +25,22 @@ namespace unit02_hilo.Game
         {
             Console.Write("Higher or Lower [l/h] ");
             string cardGuess = Console.ReadLine();
-            isPlaying = (cardGuess == "l"|| cardGuess == "h");
         }
 
-        public void DoUpdates()
+        public void DoUpdates(string cardGuess, int score, string Card.difference)
         {
-            if (!isPlaying)
+            if (cardGuess == Card.difference)
             {
-                return;
+                score += 100;
             }
-
-            score = 0;
-            foreach (Card cards in cards)
+            else if (cardGuess != Card.difference)
             {
-                card.Flip();
+                score -= 75;
             }
-            totalScore += score;
+            if (score >= 0 || DoOutputs.playAgain == 'n')
+            {
+                isPlaying = false;
+            }
         }
 
         public void DoOutputs()
@@ -49,9 +50,9 @@ namespace unit02_hilo.Game
                 return;
             }
 
-
             Console.WriteLine($"Your score is: {score}\n");
-            isPlaying = (score > 0);
+            Console.WriteLine("Play Again? [y/n]");
+            string playAgain = Console.ReadLine();
         }
     }
 }
