@@ -5,18 +5,9 @@ namespace unit02_hilo.Game
 {
     public class Director
     {
-        List<Card> cards = new List<cards>();
-        bool isPlaying = true;
-        int score = 300;
-        int totalScore = 300;
-
         public Director()
         {
-            for (int i = 0; i < 5; i++)
-            {
-                Card card = new Card();
-                card.Add(card[cardSelection]);
-            }
+            for
         }
 
         public void StartGame()
@@ -31,14 +22,11 @@ namespace unit02_hilo.Game
 
         public void GetInputs()
         {
-            Console.Write("Roll dice? [y/n] ");
-            string rollDice = Console.ReadLine();
-            isPlaying = (rollDice == "y");
+            Console.Write("Higher or Lower [l/h] ");
+            string cardGuess = Console.ReadLine();
+            isPlaying = (cardGuess == "l"|| cardGuess == "h");
         }
 
-        /// <summary>
-        /// Updates the player's score.
-        /// </summary>
         public void DoUpdates()
         {
             if (!isPlaying)
@@ -61,10 +49,6 @@ namespace unit02_hilo.Game
                 return;
             }
 
-            string values = "";
-            foreach (Card cards in card)
-            {
-            }
 
             Console.WriteLine($"Your score is: {score}\n");
             isPlaying = (score > 0);
