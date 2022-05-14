@@ -1,12 +1,16 @@
 using System;
 
-namespace unit02_hilo
+namespace unit02_hilo.Game
 {
     class Program
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello World!");
+            Random randomGenerator = new Random();
+            int cardSelection = randomGenerator.Next(0, 13);
         }
+
+    
     }
 }
+
