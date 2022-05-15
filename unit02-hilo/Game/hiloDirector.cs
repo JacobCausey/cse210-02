@@ -6,7 +6,8 @@ namespace unit02_hilo.Game
     public class Director
     {
         bool isPlaying = true;
-        int score = 0;
+        PlayerInput playerInput = new();
+        Score score = new Score();
 
         public Director()
         {
@@ -16,7 +17,7 @@ namespace unit02_hilo.Game
             while (isPlaying)
             {
                 GetInputs();
-                DoUpdates();
+                DoUpdates(playerInput.cardGuess, Score.playerScore);
                 DoOutputs();
             }
         }
@@ -24,20 +25,22 @@ namespace unit02_hilo.Game
         public void GetInputs()
         {
             Console.Write("Higher or Lower [l/h] ");
-            string cardGuess = Console.ReadLine();
+            playerInput.cardGuess = Convert.ToChar(Console.ReadLine());
         }
 
-        public void DoUpdates(string cardGuess, int score, string Card.difference)
+        public void DoUpdates(char cardGuess, int score)
         {
-            if (cardGuess == Card.difference)
+            Card card = new();
+            
+            if (cardGuess == card.difference)
             {
                 score += 100;
             }
-            else if (cardGuess != Card.difference)
+            else if (cardGuess != card.difference)
             {
                 score -= 75;
             }
-            if (score >= 0 || DoOutputs.playAgain == 'n')
+            if (score <= 0 || playAgain == 'n')
             {
                 isPlaying = false;
             }
@@ -52,7 +55,7 @@ namespace unit02_hilo.Game
 
             Console.WriteLine($"Your score is: {score}\n");
             Console.WriteLine("Play Again? [y/n]");
-            string playAgain = Console.ReadLine();
+            char playAgain = Convert.ToChar(Console.ReadLine());
         }
     }
 }
